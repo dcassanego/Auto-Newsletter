@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: 
+  sendaddress: 
+  template: MyString
+
+two:
+  name: 
+  sendaddress: 
+  template: MyString

@@ -1,0 +1,13 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Add/Edit Newsletter</title>
+	</head>
+	<body>
+		<%= form_for :newsletter, @newsletter, :url => { :action => "add" } do |f| %>
+		  <%= f.text_field :name %>
+			<%= f.text_field :sendaddress %>
+		  <%= submit_tag "Save" %>
+		<% end %>
+	</body>
+</html>

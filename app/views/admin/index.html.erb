@@ -1,0 +1,11 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Auto Newsletter Admin</title>
+	</head>
+	<body>
+		<% @newsletters.each do |newsletter| %>
+		  <a href="http://google.com"><%= newsletter.name %></a>
+		<% end %>
+	</body>
+</html>
