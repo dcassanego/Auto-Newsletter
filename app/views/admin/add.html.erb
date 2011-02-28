@@ -6,6 +6,7 @@
 	<body>
 		<%= form_for :newsletter, @newsletter, :url => { :action => "add" } do |f| %>
 		  <%= f.text_field :name %>
+			<%= f.select(:organization_id, Organization.all.collect {|o| [ o.name, o.id ] }) %>
 			<%= f.text_field :sendaddress %>
 		  <%= submit_tag "Save" %>
 		<% end %>

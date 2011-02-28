@@ -1,14 +1,38 @@
 class AnnouncementController < ApplicationController
   
   def add
-    #create a new new announcement 
+    if request.post?
+      session[:announcement] = Announcement.new(params[:announcement])
+      redirect_to :action => 'preview'
+      return
+    end
+    
+    @newsletter = Newsletter.find_by_name(params[:newsletterName])
+    if !session[:announcement].nil?
+      @announcement = session[:announcement]
+    else
+      @announcement = Announcement.new
+      @announcement.newsletter = @newsletter
+    end
   end
   
   def preview
-    # preview what it will look like
+    if session[:announcement].nil?
+      redirect_to :action => 'add'
+      return
+    end
+    
+    @newsletter = Newsletter.find_by_name(params[:newsletterName])
+    @announcement = session[:announcement]
   end
   
   def submit
-    # thank for submitting and record
+    if session[:announcement].nil?
+      redirect_to :action => 'add'
+      return
+    end
+    
+    @announcement = session[:announcement]
+    @success = @announcement.save()
   end
 end

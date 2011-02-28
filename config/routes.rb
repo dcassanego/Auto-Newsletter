@@ -58,6 +58,6 @@ AutoNewsletter::Application.routes.draw do
   
   root :to => "admin#index"
   match 'newsletter/add(/:id)' => 'admin#add'
-  match ':newsletterName' => 'admin#newsletter'
-  match ':newsletterName/:action' => 'announcement'
+  match ':newsletterName' => 'admin#newsletter', :as => :newsletter
+  match ':newsletterName/:action' => 'announcement', :as => :announcement
 end

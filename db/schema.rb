@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110226191428) do
+ActiveRecord::Schema.define(:version => 20110228035558) do
 
   create_table "announcements", :force => true do |t|
     t.string   "title"
@@ -19,6 +19,10 @@ ActiveRecord::Schema.define(:version => 20110226191428) do
     t.date     "announcementDate"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "newsletter_id"
+    t.string   "contact"
+    t.string   "time"
+    t.string   "location"
   end
 
   create_table "newsletters", :force => true do |t|
@@ -27,6 +31,7 @@ ActiveRecord::Schema.define(:version => 20110226191428) do
     t.string   "template"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "organization_id"
   end
 
   create_table "organizations", :force => true do |t|

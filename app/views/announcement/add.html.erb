@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Club Newsletter Submission</title>
+	</head>
+	<body>
+		<div class="span-24">
+			<h1><%= @newsletter.name %> Announcement Request</h1>
+			<%= form_for :announcement, @announcement, :url => { :action => "add" } do |f| %>
+			 <h2>Title</h2>
+			 <div><%= f.text_field :title %></div>
+			 
+       <h2>Contact</h2>
+       <div><%= f.text_field :contact %></div>
+			 
+			 <h2>Date</h2>
+       <div><%= date_select("announcement", "announcementDate", 
+                :default => Date.today, :order => [:month, :day]) %>
+			 </div>
+			 
+			 <h2>Time</h2>
+       <div><%= f.text_field :time %></div>
+			 
+			 <h2>Location</h2>
+       <div><%= f.text_field :location %></div>
+			 
+			 <h2>Description</h2>
+       <div><%= f.text_area :description %></div>
+			 
+			 <%= submit_tag "Next" %>
+			<% end %>
+			
+		</div>
+	</body>
+</html>
