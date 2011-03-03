@@ -7,27 +7,31 @@
 		<div class="span-24">
 			<h1><%= @newsletter.name %> Announcement Request</h1>
 			<%= form_for :announcement, @announcement, :url => { :action => "add" } do |f| %>
-			 <h2>Title</h2>
-			 <div><%= f.text_field :title %></div>
+			 <%= f.hidden_field :newsletter_id %>
 			 
-       <h2>Contact</h2>
-       <div><%= f.text_field :contact %></div>
+			 <div class="span-4"><strong>Event Title</strong></div>
+			 <div class="span-20 last"><%= f.text_field :title %></div>
 			 
-			 <h2>Date</h2>
-       <div><%= date_select("announcement", "announcementDate", 
+       <div class="span-4"><strong>Contact Email</strong></div>
+       <div class="span-20 last"><%= f.text_field :contact %></div>
+			 
+			 <div class="span-4"><strong>Event Date</strong></div>
+       <div class="span-20 last"><%= date_select("announcement", "announcementDate", 
                 :default => Date.today, :order => [:month, :day]) %>
 			 </div>
 			 
-			 <h2>Time</h2>
-       <div><%= f.text_field :time %></div>
+			 <div class="span-4"><strong>Time</strong> (e.g. 12-1)</div>
+       <div class="span-20 last"><%= f.text_field :time %></div>
 			 
-			 <h2>Location</h2>
-       <div><%= f.text_field :location %></div>
+			 <div class="span-4"><strong>Location</strong> (e.g. e62-276)</div>
+       <div class="span-20 last"><%= f.text_field :location %></div>
 			 
-			 <h2>Description</h2>
-       <div><%= f.text_area :description %></div>
+			 <div class="span-4"><strong>Description</strong> (&lt; 250 words)</div>
+       <div class="span-20 last"><%= f.text_area :description %></div>
 			 
-			 <%= submit_tag "Next" %>
+			 <div class="push-13 span-2 last">
+			   <%= submit_tag "Next" %>
+			 </div>
 			<% end %>
 			
 		</div>

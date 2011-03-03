@@ -12,7 +12,7 @@ class AnnouncementController < ApplicationController
       @announcement = session[:announcement]
     else
       @announcement = Announcement.new
-      @announcement.newsletter = @newsletter
+      @announcement.newsletter_id = @newsletter.id
     end
   end
   
@@ -32,7 +32,10 @@ class AnnouncementController < ApplicationController
       return
     end
     
+    @newsletter = Newsletter.find_by_name(params[:newsletterName])
     @announcement = session[:announcement]
     @success = @announcement.save()
+    
+    session[:announcement] = nil
   end
 end
