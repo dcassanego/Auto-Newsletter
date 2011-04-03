@@ -25,16 +25,16 @@ class AdminController < ApplicationController
     @newsletter = Newsletter.find_by_name(params[:newsletterName])
     @announcements = Announcement.
       where(:newsletter_id => @newsletter.id).
-      where("announcementDate >= ?", Time.now).
-      order("announcementDate asc")
+      where("announcementdate >= ?", Time.now).
+      order("announcementdate asc")
   end
   
   def preview
     @newsletter = Newsletter.find_by_name(params[:newsletterName])
     @announcements = Announcement.
       where(:newsletter_id => @newsletter.id).
-      where("announcementDate >= ?", Time.now).
-      order("announcementDate asc")
+      where("announcementdate >= ?", Time.now).
+      order("announcementdate asc")
   end
   
   def sendNewsletter

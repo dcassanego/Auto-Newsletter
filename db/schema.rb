@@ -10,13 +10,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110228035558) do
+ActiveRecord::Schema.define(:version => 20110403163238) do
 
   create_table "announcements", :force => true do |t|
     t.string   "title"
     t.string   "description"
     t.integer  "type"
-    t.date     "announcementDate"
+    t.date     "announcementdate"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "newsletter_id"

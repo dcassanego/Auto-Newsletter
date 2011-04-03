@@ -5,8 +5,8 @@ class WeeklyNewsletter < ActionMailer::Base
     @newsletter = newsletter
     @announcements = Announcement.
       where(:newsletter_id => @newsletter.id).
-      where("announcementDate >= ?", Time.now).
-      order("announcementDate asc")    
+      where("announcementdate >= ?", Time.now).
+      order("announcementdate asc")    
     
     mail(:to => "dantec@mit.edu", :subject => "NI Events")
   end
