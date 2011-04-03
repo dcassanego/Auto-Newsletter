@@ -2,8 +2,23 @@
 <html>
 	<head>
 		<title>Newsletter Admin</title>
+		<%= render :partial => "templates/ni-css" %>
 	</head>
 	<body>
-		<%= @newsletter.name %>
+		<h1>Administer <%= @newsletter.name %></h1>
+		<div class="span-24">
+			<p>Below are all the announcements that will appear in this weeks newsletter. Use the controls to 
+			edit the content or remove the announcement.</p>
+			
+			<% @announcements.each do |announcement| %>
+			 <%= render :partial => "announcement/announcement-basic", :locals => {:announcement => announcement} %>
+			<% end %>
+			
+			<div class="span-24">
+        <div class="push-6 span-3 last">
+          <%= link_to "Preview", newsletterAdmin_url(:newsletterName => @newsletter.name, :action => "preview") %>
+        </div>
+      </div>
+		</div>
 	</body>
 </html>
