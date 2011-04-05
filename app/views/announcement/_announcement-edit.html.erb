@@ -1,25 +1,29 @@
-<%= f.hidden_field :newsletter_id %>
-       
-<div class="span-4"><strong>Event Title</strong></div>
-<div class="span-20 last"><%= f.text_field :title %></div>
+<div class="span-14">
+	
+	<%= f.hidden_field :newsletter_id %>
+	       
+	<div class="span-4"><strong>Event Title</strong></div>
+	<div class="span-10 last"><%= f.text_field :title %></div>
+	
+	<div class="span-4"><strong>Contact Email</strong></div>
+	<div class="span-10 last"><%= f.text_field :contact %></div>
+	
+	<div class="span-4"><strong>Event Date</strong></div>
+	<div class="span-10 last"><%= date_select("announcement", "announcementdate", 
+	        :default => Date.today, :order => [:month, :day]) %>
+	</div>
+	
+	<div class="span-4"><strong>Time</strong> (e.g. 12-1)</div>
+	<div class="span-10 last"><%= f.text_field :time %></div>
+	
+	<div class="span-4"><strong>Location</strong> (e.g. e62-276)</div>
+	<div class="span-10 last"><%= f.text_field :location %></div>
+	
+	<div class="span-4"><strong>Description</strong> (&lt; 250 words)</div>
+	<div class="span-10 last"><%= f.text_area :description %></div>
+	
+	<div class="push-12 span-2 last">
+	 <%= submit_tag buttonText %>
+	</div>
 
-<div class="span-4"><strong>Contact Email</strong></div>
-<div class="span-20 last"><%= f.text_field :contact %></div>
-
-<div class="span-4"><strong>Event Date</strong></div>
-<div class="span-20 last"><%= date_select("announcement", "announcementdate", 
-        :default => Date.today, :order => [:month, :day]) %>
-</div>
-
-<div class="span-4"><strong>Time</strong> (e.g. 12-1)</div>
-<div class="span-20 last"><%= f.text_field :time %></div>
-
-<div class="span-4"><strong>Location</strong> (e.g. e62-276)</div>
-<div class="span-20 last"><%= f.text_field :location %></div>
-
-<div class="span-4"><strong>Description</strong> (&lt; 250 words)</div>
-<div class="span-20 last"><%= f.text_area :description %></div>
-
-<div class="push-13 span-2 last">
- <%= submit_tag buttonText %>
 </div>

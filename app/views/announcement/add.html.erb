@@ -6,10 +6,18 @@
 	<body>
 		<div class="span-24">
 			<h1><%= @newsletter.name %> Announcement Request</h1>
+			<hr />
+			<div class="span-14">
 			<%= form_for :announcement, @announcement, :url => { :action => "add" } do |f| %>
 			 <%= render :partial => "announcement-edit", :locals => {:f => f, :buttonText => "Next"} %>
 			<% end %>
-			
+			</div>
+			<div class="push-2 span-8 last">
+				<h3>Announcements Already Submitted</h3>
+				<% @upcoming.each do |announcement| %>
+				  <div class="push-1 span-7 last"><%= announcement.title %></div>
+				<% end %>
+			</div>
 		</div>
 	</body>
 </html>

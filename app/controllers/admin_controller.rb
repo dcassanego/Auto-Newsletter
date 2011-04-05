@@ -23,18 +23,12 @@ class AdminController < ApplicationController
   def newsletter
     # admin controls for a newsletter including edit content, approve, send
     @newsletter = Newsletter.find_by_name(params[:newsletterName])
-    @announcements = Announcement.
-      where(:newsletter_id => @newsletter.id).
-      where("announcementdate >= ?", Time.now).
-      order("announcementdate asc")
+    @announcements = Announcement.upcoming(@newsletter)
   end
   
   def preview
     @newsletter = Newsletter.find_by_name(params[:newsletterName])
-    @announcements = Announcement.
-      where(:newsletter_id => @newsletter.id).
-      where("announcementdate >= ?", Time.now).
-      order("announcementdate asc")
+    @announcements = Announcement.upcoming(@newsletter)
   end
   
   def sendNewsletter

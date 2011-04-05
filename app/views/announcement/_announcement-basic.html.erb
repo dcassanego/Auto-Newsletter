@@ -1,9 +1,11 @@
 <div class="event">
   <h2><%= announcement.title %></h2>
   <div class="event-info">
-    <h3><%= announcement.announcementdate %></h3>
-    <span class="time"><%= announcement.time %></span>
-    <span class="location"><%= announcement.location %></span>
+    <h4>
+    	<%= announcement.announcementdate.strftime("%A, %b %e") %>, 
+      <span class="time"><%= announcement.time %></span> |
+		  <span class="location"><%= announcement.location %></span>
+		</h4>
   </div>
   <p><%= announcement.description %></p>
 </div>

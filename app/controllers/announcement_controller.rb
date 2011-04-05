@@ -8,6 +8,7 @@ class AnnouncementController < ApplicationController
     end
     
     @newsletter = Newsletter.find_by_name(params[:newsletterName])
+    @upcoming = Announcement.upcoming(@newsletter)
     if !session[:announcement].nil?
       @announcement = session[:announcement]
     else

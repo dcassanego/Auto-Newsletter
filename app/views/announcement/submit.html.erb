@@ -6,7 +6,9 @@
   <body>
     <div class="span-24">
       <h1><%= @newsletter.name %> Announcement Request</h1>
-      <h2>Thanks! Your announcement will be included in the newsletter.</h2>
+			<hr />
+      <p>Thanks! Your announcement will be included in the newsletter.</p>
+			<%= link_to "Add another announcement", :action => "add" %>
     </div>
   </body>
 </html>
