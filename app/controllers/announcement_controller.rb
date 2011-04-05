@@ -2,9 +2,13 @@ class AnnouncementController < ApplicationController
   
   def add
     if request.post?
-      session[:announcement] = Announcement.new(params[:announcement])
-      redirect_to :action => 'preview'
-      return
+      @announcement = Announcement.new(params[:announcement])
+      session[:announcement] = @announcement
+      
+      if (@announcement.valid?)
+        redirect_to :action => 'preview'
+        return
+      end
     end
     
     @newsletter = Newsletter.find_by_name(params[:newsletterName])

@@ -9,6 +9,15 @@
 			<hr />
 			<div class="span-14">
 			<%= form_for :announcement, @announcement, :url => { :action => "add" } do |f| %>
+			  
+				<% if @announcement.errors.any? %>
+				  <div class="error">
+				    <% @announcement.errors.full_messages.each do |msg| %>
+				      <div><%= msg %></div>
+				    <% end %>
+				  </div>
+				<% end %>
+				
 			 <%= render :partial => "announcement-edit", :locals => {:f => f, :buttonText => "Next"} %>
 			<% end %>
 			</div>

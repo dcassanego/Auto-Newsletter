@@ -10,11 +10,11 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110403163238) do
+ActiveRecord::Schema.define(:version => 20110405225410) do
 
   create_table "announcements", :force => true do |t|
     t.string   "title"
-    t.string   "description"
+    t.text     "description"
     t.integer  "type"
     t.date     "announcementdate"
     t.datetime "created_at"
@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(:version => 20110403163238) do
     t.string   "contact"
     t.string   "time"
     t.string   "location"
+    t.string   "url"
   end
 
   create_table "newsletters", :force => true do |t|
@@ -39,5 +40,15 @@ ActiveRecord::Schema.define(:version => 20110403163238) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "sessions", :force => true do |t|
+    t.string   "session_id", :null => false
+    t.text     "data"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "sessions", ["session_id"], :name => "index_sessions_on_session_id"
+  add_index "sessions", ["updated_at"], :name => "index_sessions_on_updated_at"
 
 end

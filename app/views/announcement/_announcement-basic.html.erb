@@ -6,6 +6,9 @@
       <span class="time"><%= announcement.time %></span> |
 		  <span class="location"><%= announcement.location %></span>
 		</h4>
+		<% if !announcement.url.empty? %>
+		<a class="url" href="<%= announcement.url %>"><%= announcement.url %></a>
+		<% end %>
   </div>
   <p><%= announcement.description %></p>
 </div>
