@@ -11,12 +11,12 @@
 			edit the content or remove the announcement.</p>
 			
 			<% @announcements.each do |announcement| %>
-			 <%= render :partial => "announcement/announcement-basic", :locals => {:announcement => announcement} %>
+			 <%= render :partial => "announcement/announcement-basic", :locals => {:announcement => announcement, :controls => true} %>
 			<% end %>
 			
 			<div class="span-24">
         <div class="push-6 span-3 last">
-          <%= link_to "Preview", newsletterAdmin_url(:newsletterName => @newsletter.name, :action => "preview") %>
+        	<%= button_to "Preview", {:action => "preview"}, :method => "get" %>
         </div>
       </div>
 		</div>

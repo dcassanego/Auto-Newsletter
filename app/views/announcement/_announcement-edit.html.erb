@@ -1,5 +1,13 @@
 <div class="span-14">
 	
+	<% if announcement.errors.any? %>
+    <div class="error">
+      <% announcement.errors.full_messages.each do |msg| %>
+        <div><%= msg %></div>
+      <% end %>
+    </div>
+  <% end %>
+	
 	<%= f.hidden_field :newsletter_id %>
 	       
 	<div class="span-4"><strong>Event Title</strong></div>

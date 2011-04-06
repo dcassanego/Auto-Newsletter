@@ -26,6 +26,19 @@ class AdminController < ApplicationController
     @announcements = Announcement.upcoming(@newsletter)
   end
   
+  def edit
+    @newsletter = Newsletter.find_by_name(params[:newsletterName])
+    @announcement = Announcement.find(params[:id])
+    
+    if (request.post?)
+      @announcement.update_attributes(params[:announcement])
+      if (@announcement.save)
+        redirect_to :action => 'newsletter', :newsletterName => @newsletter.name
+        return
+      end
+    end
+  end
+  
   def preview
     @newsletter = Newsletter.find_by_name(params[:newsletterName])
     @announcements = Announcement.upcoming(@newsletter)

@@ -1,0 +1,18 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>Announcement Edit</title>
+  </head>
+  <body>
+    <div class="span-24">
+      <h1><%= @newsletter.name %> Announcement Edit</h1>
+      <hr />
+      <div class="span-24">
+      <%= form_for :announcement, @announcement, :url => { :action => "edit" } do |f| %>       
+       <%= render :partial => "announcement/announcement-edit", 
+            :locals => {:announcement => @announcement, :f => f, :buttonText => "Update"} %>
+      <% end %>
+      </div>
+    </div>
+  </body>
+</html>
