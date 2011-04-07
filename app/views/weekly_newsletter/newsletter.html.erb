@@ -1,1 +1,8 @@
-html yay
+<html>
+	<head>
+		<%= render :partial => "templates/ni-css" %>
+	</head>
+	<body>
+		<%= render :partial => "templates/ni-newsletter", :locals => {:newsletter => @newsletter, :announcements => @announcements} %>
+	</body>
+</html>

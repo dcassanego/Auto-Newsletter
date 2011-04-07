@@ -5,6 +5,6 @@ class WeeklyNewsletter < ActionMailer::Base
     @newsletter = newsletter
     @announcements = Announcement.upcoming(@newsletter)    
     
-    mail(:to => "dantec@mit.edu", :subject => "NI Events")
+    mail(:to => "dantec@mit.edu", :subject => "Net Impact Events")
   end
 end

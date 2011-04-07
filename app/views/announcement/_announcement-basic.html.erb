@@ -1,19 +1,22 @@
 <div class="event">
-  <h2><%= announcement.title %></h2>
+  <div>
+	 <h2><%= announcement.title %></h2>
+    <% if controls %>
+	   <span class="controls">
+	    <%= link_to "edit", newsletterAdmin_url(:newsletterName => announcement.newsletter.name, :action => "edit", :id => announcement.id) %>
+	   </div>
+	  <% end %>	
+	</div>
+	<hr />
   <div class="event-info">
     <h4>
     	<%= announcement.announcementdate.strftime("%A, %b %e") %>, 
       <span class="time"><%= announcement.time %></span> |
 		  <span class="location"><%= announcement.location %></span>
+		  <% if !announcement.url.empty? %>
+	    | <a class="url" href="<%= announcement.url %>"><%= announcement.url %></a>
+	    <% end %>
 		</h4>
-		<% if !announcement.url.empty? %>
-		<a class="url" href="<%= announcement.url %>"><%= announcement.url %></a>
-		<% end %>
   </div>
   <p><%= announcement.description %></p>
-	<% if controls %>
-	 <div class="controls">
-	 	<%= link_to "edit", newsletterAdmin_url(:newsletterName => announcement.newsletter.name, :action => "edit", :id => announcement.id) %>
-	 </div>
-	<% end %>
 </div>

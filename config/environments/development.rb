@@ -22,5 +22,8 @@ AutoNewsletter::Application.configure do
 
   # Only use best-standards-support built into browsers
   config.action_dispatch.best_standards_support = :builtin
+  
+  #set the asset server (so get full URLs)
+  config.action_controller.asset_host = "http://localhost:3000"
 end
 
