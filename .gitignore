@@ -18,3 +18,4 @@ doc/*.dot
 coverage/*
 .project
 .sw?
+config/initializers/setup_mail.rb
