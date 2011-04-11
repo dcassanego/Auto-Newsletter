@@ -1,7 +1,7 @@
 <%= @newsletter.name %> Newsletter
 
 <% @announcements.each do |announcement| %>
---- announcement.title ---
+--- <%= announcement.title %> ---
 <%= announcement.announcementdate.strftime("%A, %b %e") %>, <%= announcement.time %> | <%= announcement.location %>
 <% if !announcement.url.empty? %>
 <%= announcement.url %>
