@@ -1,22 +1,24 @@
-<div class="event">
+<div class="event" style="padding:5px;">
   <div>
-	 <h2><%= announcement.title %></h2>
-    <% if controls %>
-	   <span class="controls">
-	    <%= link_to "edit", newsletterAdmin_url(:newsletterName => announcement.newsletter.name, :action => "edit", :id => announcement.id) %>
-	   </div>
-	  <% end %>	
+	 <h2 style="float:left;margin-bottom:0px;color: #47677C;">
+	 	<%= announcement.title %>
+	 </h2>
+   <% if controls %>
+    <span class="controls" style="vertical-align:bottom;margin-left:15px;">
+     <%= link_to "edit", newsletterAdmin_url(:newsletterName => announcement.newsletter.name, :action => "edit", :id => announcement.id) %>
+    </span>
+   <% end %>	
 	</div>
-	<hr />
+	<hr style="margin-bottom:0px;height: 1px;color: #404040;background-color: #404040;" />
   <div class="event-info">
-    <h4>
+    <h4 style="margin-bottom:0px;">
     	<%= announcement.announcementdate.strftime("%A, %b %e") %>, 
       <span class="time"><%= announcement.time %></span> |
-		  <span class="location"><%= announcement.location %></span>
+		  <span class="location" style="font-style:italic;"><%= announcement.location %></span>
 		  <% if !announcement.url.empty? %>
 	    | <a class="url" href="<%= announcement.url %>"><%= announcement.url %></a>
 	    <% end %>
 		</h4>
   </div>
-  <p><%= announcement.description %></p>
+  <p style="padding:10px;"><%= announcement.description %></p>
 </div>

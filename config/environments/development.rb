@@ -25,5 +25,6 @@ AutoNewsletter::Application.configure do
   
   #set the asset server (so get full URLs)
   config.action_controller.asset_host = "http://localhost:3000"
+  $ROOT_URL = "http://localhost:3000/"
 end
 
