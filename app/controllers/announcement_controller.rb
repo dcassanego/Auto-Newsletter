@@ -40,6 +40,9 @@ class AnnouncementController < ApplicationController
     @newsletter = Newsletter.find_by_name(params[:newsletterName])
     @announcement = session[:announcement]
     @success = @announcement.save()
+    if (@success)
+      Notification.event_added(@announcement).deliver
+    end
     
     session[:announcement] = nil
   end

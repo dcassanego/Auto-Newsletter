@@ -10,7 +10,7 @@
    <% end %>	
 	</div>
 	<hr style="clear:left;margin-bottom:0px;padding-bottom:0px;height:1px;color: #404040;background-color: #404040;" />
-  <div class="event-info">
+  <div class="event-info" style="margin-bottom:10px;">
     <h4 style="margin-bottom:0px;">
     	<%= announcement.announcementdate.strftime("%A, %b %e") %>, 
       <span class="time"><%= announcement.time %></span> |
@@ -20,5 +20,7 @@
 	    <% end %>
 		</h4>
   </div>
-  <p style="padding:10px;"><%= announcement.description %></p>
+	<div style="padding:0px 10px">
+    <%= announcement.description.html_safe %>
+	</div>
 </div>

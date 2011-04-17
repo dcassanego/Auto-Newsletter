@@ -1,3 +1,20 @@
+<%= javascript_include_tag "tiny_mce/jquery.tinymce.js", "tiny_mce/tiny_mce.js" %>
+<script type="text/javascript">
+tinyMCE.init({
+        mode : "textareas",
+        theme : "advanced", 
+                
+        // Theme options - button# indicated the row# only
+        theme_advanced_buttons1 : "bold,italic,underline,|,justifyleft,justifycenter,justifyright,|,fontsizeselect,",
+        theme_advanced_buttons2 : "",
+				theme_advanced_buttons3 : "",
+				theme_advanced_toolbar_location : "top",
+        theme_advanced_toolbar_align : "left",
+        theme_advanced_statusbar_location : "bottom",
+        theme_advanced_resizing : true
+});
+</script>
+
 <div class="span-14">
 	
 	<% if announcement.errors.any? %>
@@ -13,8 +30,10 @@
 	<div class="span-4"><strong>Event Title</strong></div>
 	<div class="span-10 last"><%= f.text_field :title %></div>
 	
-	<div class="span-4"><strong>Contact Email</strong></div>
-	<div class="span-10 last"><%= f.text_field :contact %></div>
+	<div class="span-14 last">
+	 <div class="span-4"><strong>Contact Email</strong><br />(event contact @Sloan)</div>
+	 <div class="span-10 last"><%= f.text_field :contact %></div>
+	</div>
 	
 	<div class="span-4"><strong>Event Date</strong></div>
 	<div class="span-10 last"><%= date_select("announcement", "announcementdate", 
@@ -30,10 +49,11 @@
 	<div class="span-4"><strong>Event URL</strong></div>
   <div class="span-10 last"><%= f.text_field :url %></div>
 	
-	<div class="span-4"><strong>Description</strong> (&lt; 250 words)</div>
-	<div class="span-10 last"><%= f.text_area :description %></div>
+	<div class="span-14 last"><strong>Description</strong> (&lt; 250 words)</div>
+	<div class="span-14 last append-bottom"><%= f.text_area :description, :style => "width:550px" %></div>
 	
-	<div class="push-12 span-2 last">
+	<hr />
+	<div class="span-14 last">
 	 <%= submit_tag buttonText %>
 	</div>
 
