@@ -1,5 +1,5 @@
 class WeeklyNewsletter < ActionMailer::Base
-  default :from => "dante.cassanego@gmail.com"
+  default :from => "mitsloannetimpactmarketing@gmail.com"
   
   def newsletter(newsletter)
     @newsletter = newsletter
