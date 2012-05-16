@@ -5,7 +5,7 @@ task :cron => :environment do
   if Time.now.wday == 0 || Rails.env.development? 
     newsletters = Newsletter.find(:all)
     newsletters.each do |newsletter|
-      Notification.send_reminder(newsletter).deliver
+      Notification.send_reminder(newsletter).deliver if newsletter.active
     end
   end
 
