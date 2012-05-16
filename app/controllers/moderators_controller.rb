@@ -1,4 +1,6 @@
 class ModeratorsController < ApplicationController
+  before_filter :authenticate
+  
   # GET /moderators
   # GET /moderators.xml
   def index
