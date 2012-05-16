@@ -57,8 +57,13 @@ AutoNewsletter::Application.routes.draw do
   # match ':controller(/:action(/:id(.:format)))'
   
   root :to => "admin#index"
+  
+  resources :moderators
+  
   match 'newsletter/add(/:id)' => 'admin#add'
   match ':newsletterName' => 'admin#newsletter', :as => :newsletter
   match ':newsletterName/admin/:action(/:id)' => 'admin', :as => :newsletterAdmin
   match ':newsletterName/:action' => 'announcement', :as => :announcement
+  
+  
 end

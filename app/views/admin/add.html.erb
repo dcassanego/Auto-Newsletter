@@ -5,10 +5,30 @@
 	</head>
 	<body>
 		<%= form_for :newsletter, @newsletter, :url => { :action => "add" } do |f| %>
-		  <%= f.text_field :name %>
-			<%= f.select(:organization_id, Organization.all.collect {|o| [ o.name, o.id ] }) %>
-			<%= f.text_field :sendaddress %>
-		  <%= submit_tag "Save" %>
+			<table>
+				<tr>
+					<td><%= f.label :name%></td>
+					<td><%= f.text_field :name %></td>
+				</tr>
+				<tr>
+					<td><%= f.label :organization_id%></td>
+					<td><%= f.select(:organization_id, Organization.all.collect {|o| [ o.name, o.id ] }) %></td>
+				</tr>
+				<tr>
+					<td><%= f.label :sendaddress %></td>
+					<td><%= f.text_field :sendaddress %></td>
+				</tr>
+				<tr>
+					<td><%= f.label :from_email %></td>
+					<td><%= f.text_field :from_email %></td>
+				</tr>
+				<tr>
+					<td><%= f.label :from_pwd %></td>
+					<td><%= f.text_field :from_pwd %></td>
+				</tr>
+			</table>
+
+			<%= submit_tag "Save" %>
 		<% end %>
 	</body>
 </html>
