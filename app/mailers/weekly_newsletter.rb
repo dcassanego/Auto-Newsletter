@@ -8,6 +8,6 @@ class WeeklyNewsletter < ActionMailer::Base
     @newsletter = newsletter
     @announcements = Announcement.upcoming(@newsletter)    
     
-    mail(:to => @newsletter.sendaddress, :from => newsletter.from_email, :subject => "#{@newsletter.name} Newsletter")
+    mail(:to => @newsletter.sendaddress, :from => newsletter.from_email, :subject => newsletter.subject)
   end
 end

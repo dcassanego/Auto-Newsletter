@@ -15,6 +15,10 @@
 					<td><%= f.select(:organization_id, Organization.all.collect {|o| [ o.name, o.id ] }) %></td>
 				</tr>
 				<tr>
+					<td><%= f.label :subject %></td>
+					<td><%= f.text_field :subject %></td>
+				</tr>
+				<tr>
 					<td><%= f.label :sendaddress %></td>
 					<td><%= f.text_field :sendaddress %></td>
 				</tr>

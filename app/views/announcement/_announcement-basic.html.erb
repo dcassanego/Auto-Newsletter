@@ -1,6 +1,13 @@
+<% 	if announcement.newsletter.name == "netimpact" then color = "#166afa"
+   	elsif announcement.newsletter.name == "marketingclub" then color = "#8f312f"
+   	elsif announcement.newsletter.name == "foodclub" then color = "#579635"
+	else 
+		color = "#166afa"
+	end %>
+
 <div class="event" style="padding:5px;">
   <div>
-	 <h2 style="float:left;margin-bottom:0px;color: #166afa;font-weight:normal;">
+	 <h2 style="float:left;margin-bottom:0px;color: <%= color %>;font-weight:normal;">
 	 	<%= announcement.title %>
 	 </h2>
    <% if controls %>

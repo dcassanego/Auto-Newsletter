@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120516223143) do
+ActiveRecord::Schema.define(:version => 20120516230709) do
 
   create_table "announcements", :force => true do |t|
     t.string   "title"
@@ -40,9 +40,10 @@ ActiveRecord::Schema.define(:version => 20120516223143) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "organization_id"
-    t.string   "from_email",      :default => "",   :null => false
-    t.string   "from_pwd",        :default => "",   :null => false
-    t.boolean  "active",          :default => true, :null => false
+    t.string   "from_email",      :default => "",                  :null => false
+    t.string   "from_pwd",        :default => "",                  :null => false
+    t.boolean  "active",          :default => true,                :null => false
+    t.string   "subject",         :default => "Weekly Newsletter", :null => false
   end
 
   create_table "organizations", :force => true do |t|

@@ -1,9 +1,21 @@
 <div class="newsletter" style="width:800px;">
-  <img src="<%= "#{$ROOT_URL}images/netimpact/ni-banner.jpg" %>" />
+  <% if newsletter.name == "netimpact" %>
+  	<img src="<%= "#{$ROOT_URL}images/netimpact/ni-banner.jpg" %>" />
+  
+  <% elsif newsletter.name == "marketingclub" %>
+  	<img src="<%= "#{$ROOT_URL}images/marketing-logo.png" %>" />
+  
+  <% elsif newsletter.name == "foodclub" %>
+  	<img src="<%= "#{$ROOT_URL}images/fac-logo.png" %>" />
+  
+  <% else %>
+  	<img src="<%= "#{$ROOT_URL}images/netimpact/ni-banner.jpg" %>" />
+  
+  <% end %>
 	
 	<% announcements.each do |announcement| %>
    <%= render :partial => "announcement/announcement-basic", 
-        :locals => {:announcement => announcement, :controls => false} %>
+        :locals => {:newsletter => newsletter, :announcement => announcement, :controls => false} %>
   <% end %>
 	
 	<div class="footer" style="margin-top:10px;border-top:1px solid #404040;color:#666;">
