@@ -21,6 +21,8 @@ class AdminController < ApplicationController
   end
   
   def newsletter
+    session[:update] = params[:update] if params[:update].present?
+    
     # admin controls for a newsletter including edit content, approve, send
     @newsletter = Newsletter.find_by_name(params[:newsletterName])
     @announcements = Announcement.upcoming(@newsletter)

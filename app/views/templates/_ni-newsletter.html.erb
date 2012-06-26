@@ -1,20 +1,36 @@
 <div class="newsletter" style="width:800px;">
   <% if newsletter.name == "netimpact" %>
+  	<% color = "#166afa" %>
   	<img src="<%= "#{$ROOT_URL}images/netimpact/ni-banner.jpg" %>" />
   
   <% elsif newsletter.name == "marketingclub" %>
+  	<% color = "#8f312f" %>
   	<img src="<%= "#{$ROOT_URL}images/marketing-logo.png" %>" />
   
   <% elsif newsletter.name == "foodclub" %>
+  	<% color = "#579635" %>
   	<img src="<%= "#{$ROOT_URL}images/fac-logo.png" %>" />
   
   <% else %>
+  	<% color = "#166afa" %>
   	<img src="<%= "#{$ROOT_URL}images/netimpact/ni-banner.jpg" %>" />
   
   <% end %>
 	
-	<% announcements.each do |announcement| %>
-   <%= render :partial => "announcement/announcement-basic", 
+  <% if session[:update].present? %>
+  	<div>
+  		<h2 style="margin-bottom:0px;color: <%= color %>;font-weight:normal;">
+  			Updates and Announcements
+  		</h2>
+  		<div style="border:1px solid #999;border-radius: 10px;padding:10px;">
+  			<%= session[:update].html_safe %>
+  		</div>	
+  	</div>
+  	
+  <% end %>
+  
+  <% announcements.each do |announcement| %>
+  	<%= render :partial => "announcement/announcement-basic", 
         :locals => {:newsletter => newsletter, :announcement => announcement, :controls => false} %>
   <% end %>
 	
