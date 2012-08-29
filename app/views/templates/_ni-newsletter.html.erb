@@ -17,7 +17,7 @@
   
   <% end %>
 	
-  <% if session[:update].present? %>
+  <% if session.present? && session[:update].present? %>
   	<div>
   		<h2 style="margin-bottom:0px;color: <%= color %>;font-weight:normal;">
   			Updates and Announcements
