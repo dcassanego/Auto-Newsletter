@@ -31,3 +31,4 @@ gem 'pg'
 
 gem "jquery-rails"
 gem "mail"
+gem 'exception_notification'
