@@ -48,7 +48,7 @@ class AdminController < ApplicationController
   
   def sendNewsletter
     @newsletter = Newsletter.find_by_name(params[:newsletterName])
-    WeeklyNewsletter.newsletter(@newsletter).deliver
+    WeeklyNewsletter.newsletter(@newsletter, session[:update]).deliver
     
     redirect_to :action => 'confirmation', :newsletterName => @newsletter.name
   end

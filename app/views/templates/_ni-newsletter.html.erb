@@ -17,13 +17,17 @@
   
   <% end %>
 	
-  <% if session.present? && session[:update].present? %>
+  <% if ((session.present? && session[:update].present?) || (defined?(update) && update.present?)) %>
   	<div>
   		<h2 style="margin-bottom:0px;color: <%= color %>;font-weight:normal;">
   			Updates and Announcements
   		</h2>
   		<div style="border:1px solid #999;border-radius: 10px;padding:10px;">
-  			<%= session[:update].html_safe %>
+  			<% if session.present? && session[:update].present? %>
+  				<%= session[:update].html_safe %>
+  			<% else %>
+  				<%= update.html_safe %>
+  			<% end %>
   		</div>	
   	</div>
   	
