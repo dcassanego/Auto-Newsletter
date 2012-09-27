@@ -2,7 +2,7 @@ class Announcement < ActiveRecord::Base
   belongs_to :newsletter
   
   validates_length_of :title, :maximum => 200, :allow_blank => false
-  validates_length_of :description, :maximum => 2000, :allow_blank => false
+  validates_length_of :description, :maximum => 20000, :allow_blank => false
   validates_length_of :url, :maximum => 200, :allow_blank => true
   validates_length_of :contact, :maximum => 200, :allow_blank => false
   validates_length_of :time, :maximum => 200, :allow_blank => false
